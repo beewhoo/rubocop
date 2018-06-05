@@ -1,10 +1,10 @@
+# class airplane#
 class Airplane
-
-  @@all = []
-
+  attr_age :all
+  @all = []
   def initialize
     @location = 'ground'
-    @@all << self
+    @all << self
   end
 
   def fly
@@ -13,30 +13,25 @@ class Airplane
   end
 
   def land
-    @location = "ground"
-  end
-
-  def self.all
-    @@all
+    @location = 'ground'
   end
 
   def passengers
     [
       mila: 'vegetarian',
       paul: 'chicken',
-       egon: 'chicken',
+      egon: 'chicken',
       sama: 'chicken'
     ]
   end
 
   def self.ground_all
-    @@all.each do |airplane|
+    @all.each&:land
       airplane.land
       end
   end
 
   def self.get_planes_for_ten_airports
-    10 * @@all.size
+    10 * @all.size
   end
-
 end
